@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S. Rupika — Portfolio</title
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#4a0508;--yel:#ffc61a;--cream:#ece5d2;--pink:#f8a9a0;--ink:#1a1210;--chunk:"Archivo Black",Impact,sans-serif;--sans:"DM Sans",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#fff;font-family:var(--sans);overflow-x:hidden;transition:background .9s,color .9s}
+body[data-t=cream]{background:var(--cream);color:var(--ink)}body[data-t=pink]{background:var(--pink);color:var(--ink)}
+button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+#intro{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .7s .1s,visibility .7s .1s}
+#intro.gone{opacity:0;visibility:hidden}#intro svg{width:min(70vw,420px);overflow:visible}
+.d{fill:none;stroke:var(--yel);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.o{animation:dr 1.1s ease forwards}.h{animation:dr .9s ease forwards;stroke-width:6}
+#intro .f{fill:var(--yel);opacity:0;transform-origin:0 0;animation:fl .7s 2.2s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}@keyframes fl{to{opacity:1}}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;padding:calc(16px + env(safe-area-inset-top,0px)) 6vw 16px;font-size:13px;letter-spacing:.06em}
+nav b{font-family:var(--chunk)}nav div{display:flex;gap:20px}nav a:hover{color:var(--yel);text-decoration:underline}
+.hero{min-height:100svh;position:relative;display:grid;place-items:center;overflow:hidden;padding:90px 5vw 60px;text-align:center}
+.star{position:absolute;width:min(78vw,560px);left:50%;top:50%;translate:-50% -50%;animation:sp 40s linear infinite}
+@keyframes sp{to{rotate:360deg}}
+.hero h1{position:relative;z-index:3;margin:0;font:clamp(3.4rem,15vw,12rem)/.85 var(--chunk);letter-spacing:-.06em;color:#fff;mix-blend-mode:normal;text-shadow:0 4px 0 var(--bg)}
+.hero p{position:relative;z-index:3;margin:18px auto 0;max-width:44ch;line-height:1.5;font-size:clamp(14px,1.6vw,18px)}
+.hint{position:absolute;bottom:22px;left:0;right:0;font-size:12px;letter-spacing:.08em;opacity:.7;z-index:3}
+.fl{position:absolute;z-index:2;width:clamp(70px,11vw,130px);cursor:grab;touch-action:none;transition:translate .3s;user-select:none}
+.fl:active{cursor:grabbing}.fl svg{width:100%;display:block;filter:drop-shadow(0 10px 14px rgba(0,0,0,.4));animation:bob 5s ease-in-out infinite}.fl:nth-of-type(even) svg{animation-delay:-2s}
+@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
+.bento{padding:110px 5vw;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1150px;margin:auto}
+.tile{background:var(--ink);color:var(--cream);border-radius:22px;padding:24px;position:relative;overflow:hidden;opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(.7);transition:transform 1s cubic-bezier(.2,.9,.25,1.15),opacity .6s,background .3s,color .3s;transition-delay:var(--dl)}
+.tile.in{opacity:1;transform:none}.tile.in:hover{transform:translateY(-6px) rotate(-.6deg);transition-delay:0s;transition-duration:.25s}
+.tile.lt{background:#fff8;color:var(--ink);backdrop-filter:blur(6px)}.tile.ye{background:var(--yel);color:var(--ink)}
+.s2{grid-column:span 2}.r2{grid-row:span 2}
+.tile h2{font:clamp(1.8rem,4vw,3.4rem)/.95 var(--chunk);letter-spacing:-.05em;margin:0 0 14px}.tile h3{font:18px var(--chunk);margin:0 0 10px;letter-spacing:-.02em}
+.tile p{margin:0 0 10px;line-height:1.55;font-size:15px;max-width:50ch}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.tab{border:1px solid currentColor;border-radius:99px;padding:7px 14px;background:none;font-size:13px}.tab[aria-pressed=true]{background:var(--yel);color:var(--ink);border-color:var(--yel)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;min-height:90px;align-content:flex-start}.pills span{padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.1);font-size:14px;animation:pop .35s both}
+@keyframes pop{from{opacity:0;transform:scale(.7)}}
+.pills small{opacity:.6;margin-left:6px}
+.zt svg{width:100%;display:block;margin:6px 0 10px}.zt .z{transition:fill-opacity .3s,filter .3s;fill-opacity:.15}.zt .z.on{fill-opacity:.85;filter:drop-shadow(0 0 10px currentColor)}
+.zt .row{display:flex;gap:8px;margin-bottom:10px}.btn{border-radius:99px;padding:10px 18px;border:1px solid currentColor;background:none;font-size:14px;transition:.2s}.btn:hover{background:var(--yel);color:var(--ink);border-color:var(--yel)}
+.big{font:clamp(2rem,5vw,3.2rem)/1 var(--chunk);letter-spacing:-.05em}
+.spin{width:90px;animation:sp 12s linear infinite;float:right}
+.words{font:clamp(1.3rem,2.6vw,2rem)/1.15 var(--chunk);letter-spacing:-.04em}.words span{display:block;transition:transform .3s}.words span:hover{transform:translateX(10px);color:#fff}
+footer{text-align:center;padding:10px 5vw 40px;font-size:13px}
+@media(max-width:800px){.bento{grid-template-columns:1fr 1fr}.s2{grid-column:span 2}.r2{grid-row:auto}nav div{gap:12px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.tile{opacity:1;transform:none}}
+</style></head><body data-t="red">
+<div id="intro" role="presentation"><svg viewBox="-110 -110 220 220"><defs><clipPath id="cp"><path id="sp" d="M0-100 23-32 95-31 37 12 59 81 0 40-59 81-37 12-95-31-23-32Z"/></clipPath></defs>
+<path class="d o" pathLength="1" d="M0-100 23-32 95-31 37 12 59 81 0 40-59 81-37 12-95-31-23-32Z"/>
+<g clip-path="url(#cp)"><path class="d h" pathLength="1" style="animation-delay:1.1s" d="M-100-60 100-20M-100-30 100 10M-100 0 100 40M-100 30 100 70M-100 60 100 100M-100-90 100-50"/></g>
+<path class="f" d="M0-100 23-32 95-31 37 12 59 81 0 40-59 81-37 12-95-31-23-32Z"/></svg></div>
+<nav><b>S.RUPIKA</b><div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<header class="hero" id="top">
+<svg class="star" viewBox="-110 -110 220 220" aria-hidden="true"><path d="M0-100 23-32 95-31 37 12 59 81 0 40-59 81-37 12-95-31-23-32Z" fill="#ffc61a"/></svg>
+<div class="fl" data-d="30" style="left:8%;top:22%"><svg viewBox="0 0 120 90"><rect x="6" y="14" width="108" height="70" rx="10" fill="#b9b9bd"/><rect x="14" y="22" width="52" height="54" rx="4" fill="#3a2a2a"/><circle cx="90" cy="52" r="20" fill="#555"/><circle cx="90" cy="52" r="12" fill="#222"/></svg></div>
+<div class="fl" data-d="-24" style="right:9%;top:20%"><svg viewBox="0 0 100 100"><path d="M50 8 92 30V70L50 92 8 70V30Z" fill="#ece5d2"/><path d="M50 8 92 30 50 52 8 30Z" fill="#fff"/><path d="M50 52V92L92 70V30Z" fill="#c9bfa5"/></svg></div>
+<div class="fl" data-d="-40" style="left:12%;bottom:16%"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="#ece5d2" stroke-width="16" stroke-dasharray="11 7.5"/><circle cx="50" cy="50" r="20" fill="#ece5d2"/><circle cx="50" cy="50" r="8" fill="#4a0508"/></svg></div>
+<div class="fl" data-d="36" style="right:11%;bottom:18%"><svg viewBox="0 0 100 100"><rect x="10" y="30" width="80" height="55" rx="4" fill="#1a1210"/><path d="M10 10 90 24 87 38 8 24Z" fill="#ece5d2"/><path d="M28 10 36 38M50 14 58 40M72 18 80 42" stroke="#1a1210" stroke-width="6"/></svg></div>
+<div class="fl" data-d="20" style="left:42%;top:12%"><svg viewBox="0 0 100 100"><path d="M18 78 70 14l16 12L34 90 12 94Z" fill="#f8a9a0"/><path d="M70 14l16 12 6-8-14-14Z" fill="#ece5d2"/></svg></div>
+<div><h1>Making<br>ideas real</h1><p>I'm S. Rupika, a Mechanical &amp; Automation Engineering student who designs, builds and edits.</p></div>
+<div class="hint">MOVE YOUR MOUSE · DRAG THE OBJECTS</div>
+</header>
+<main class="bento" id="work" data-theme="cream">
+<article class="tile ye s2 r2" id="about"><svg class="spin" viewBox="-110 -110 220 220" aria-hidden="true"><path d="M0-100 23-32 95-31 37 12 59 81 0 40-59 81-37 12-95-31-23-32Z" fill="#4a0508"/></svg><h2>Hi, I'm Rupika.</h2><p>Mechanical &amp; Automation Engineering student with a creative streak. I love designing and building, whether it's abstract art, something made by hand, or an idea shaped into a real object.</p><p>I also edit photos and video, experimenting with visuals, motion and storytelling.</p></article>
+<article class="tile s2"><h3>Toolkit</h3><div class="tabs" role="group" aria-label="Skill category"><button class="tab" aria-pressed="true" data-k="0">Software</button><button class="tab" aria-pressed="false" data-k="1">Technical</button><button class="tab" aria-pressed="false" data-k="2">Creative</button></div><div class="pills" id="pl" aria-live="polite"></div></article>
+<article class="tile lt"><div class="words"><span>Design</span><span>Build</span><span>Experiment</span><span>Create</span></div></article>
+<article class="tile lt"><div class="big">Curious by nature.</div></article>
+<article class="tile s2 r2 zt" id="zt"><h3>Z-Temp delivery box</h3><svg viewBox="100 60 440 340" role="img" aria-label="Dual-compartment delivery box"><path d="M130 165 310 78 510 158 326 250Z" fill="#454b3d" stroke="#b8c1a7" stroke-width="2"/><path d="M130 165 326 250V280L130 195Z" fill="#20231e"/><path d="M326 250 510 158V190L326 280Z" fill="#2c3128"/><path d="M130 195 326 280V370L130 282Z" fill="#2a2e25" stroke="#9fa895" stroke-width="2"/><path d="M326 280 510 190V280L326 370Z" fill="#1d201b" stroke="#9fa895" stroke-width="2"/><path class="z" id="hz" style="color:#ff815c" d="M154 219 222 249V311L154 281Z" fill="#ff815c" stroke="#ff815c" stroke-width="2"/><path class="z" id="cz" style="color:#83bfff" d="M350 292 482 228V267L350 331Z" fill="#83bfff" stroke="#83bfff" stroke-width="2"/><path d="M326 280V370" stroke="#e9eee0" stroke-opacity=".5" stroke-width="5"/></svg><div class="row"><button class="btn" data-z="h">Hot side</button><button class="btn" data-z="c">Cold side</button></div><p id="zt-t">Tap a side. An insulated partition keeps hot and cold items apart in transit.</p><p style="opacity:.6;font-size:13px">Concept, 3D CAD design, ongoing.</p></article>
+<article class="tile lt s2"><h3>Creative side</h3><p>Abstract drawing, creative design, photo and video editing, DIY and handmade work.</p></article>
+<article class="tile ye s2" id="contact"><h2>Let's make something real.</h2><a class="btn" id="mail" href="#">Email me</a></article>
+</main>
+<footer>© 2026 S. Rupika</footer>
+<script>
+const EMAIL='your.email@example.com';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$('#mail').href='mailto:'+EMAIL;
+// intro
+document.body.style.overflow='hidden';
+const end=()=>{$('#intro').classList.add('gone');document.body.style.overflow=''};
+setTimeout(end,matchMedia('(prefers-reduced-motion:reduce)').matches?100:3300);$('#intro').onclick=end;
+// parallax + drag
+const fl=$$('.fl');let mx=0,my=0;
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;fl.forEach(f=>{if(!f.dr)f.style.translate=`${mx*f.dataset.d*2}px ${my*f.dataset.d*2}px`})});
+fl.forEach(f=>{let ox,oy,bx=0,by=0;f.onpointerdown=e=>{f.dr=1;f.setPointerCapture(e.pointerId);ox=e.clientX-bx;oy=e.clientY-by;f.style.transition='none'};
+f.onpointermove=e=>{if(!f.dr)return;bx=e.clientX-ox;by=e.clientY-oy;f.style.translate=`${bx}px ${by}px`};
+f.onpointerup=()=>{f.dr=0;f.style.transition=''}});
+// bento assemble
+$$('.tile').forEach((t,i)=>{t.style.setProperty('--x',(Math.random()*160-80)+'px');t.style.setProperty('--y',(120+Math.random()*120)+'px');t.style.setProperty('--r',(Math.random()*30-15)+'deg');t.style.setProperty('--dl',(i%4)*.12+'s')});
+const to=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');to.unobserve(e.target)}}),{threshold:.15});$$('.tile').forEach(t=>to.observe(t));
+// theme shift
+const th=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.body.dataset.t=e.target.dataset.theme}),{threshold:.3});
+[['#top','red'],['#work','cream'],['#contact','pink']].forEach(([s,t])=>{$(s).dataset.theme=t;th.observe($(s))});
+// skills
+const K=[[['AutoCAD','intermediate'],['SolidWorks','beginner'],['Python','intermediate'],['Photoshop','intermediate'],['Premiere Pro','intermediate'],['After Effects','intermediate']],[['Rapid prototyping',''],['3D printing','']],[['Abstract drawing',''],['Creative design',''],['Photo editing',''],['Video editing',''],['DIY & handmade','']]];
+const show=k=>$('#pl').innerHTML=K[k].map((s,i)=>`<span style="animation-delay:${i*.05}s">${s[0]}${s[1]?`<small>${s[1]}</small>`:''}</span>`).join('');show(0);
+$$('.tab').forEach(b=>b.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-pressed',x===b));show(+b.dataset.k)});
+// z-temp
+const msg={h:'Hot side: keeps food warm, sealed off from the cold compartment.',c:'Cold side: keeps drinks and desserts chilled, away from the heat.'};
+$$('[data-z]').forEach(b=>b.onclick=()=>{const k=b.dataset.z;$('#hz').classList.toggle('on',k==='h');$('#cz').classList.toggle('on',k==='c');$('#zt-t').textContent=msg[k]});
+</script></body></html>
